@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Sign-up></Sign-up></title>
+    <style>
+        /* CSS goes here */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1000px;
+            margin: 0;
+            background-color: #da6464;
+        }
+        .signup-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        .signup-form input {
+            display:block ;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .signup-form button {
+            background-color: #da6464;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            width: 100%;
+            cursor: pointer;
+        }
+        .signup-form button:hover {
+            background-color: #c85353;
+        }
+        login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .login-link a {
+            color: #1500ff;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form class="signup-form" id="signupForm">
+        <label for="username">Username:</label>
+        <input type="text" name="Username" id="Username" placeholder="UserName" required>
+    <label for="fname">Firstname:</label>
+        <input type="text" name="Firstname" id="Firstname" placeholder="Firstname" required>
+    </label>
+    <label for="Lastname">Lastname:</label>
+        <input type="text" name="Lastname" id="Lastname" placeholder="Lastname" required>
+    <label for="Phone">Phone:</label>
+        <input type="text" name="Phone" id="Phone" placeholder="Phone" required>
+    <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+    <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+    <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+    <p id="message" style="color:#1500ff;margin-top: 10px"></p>
+    <p class="login-link">Already have an account? <a href="login.html">Log in</a></p>
+    </form>
+</body>
+</html>
+<script>
+    // JavaScript goes here
+    const signupForm = document.getElementById('signupForm');
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('Username').value;
+        const firstname = document.getElementById('Firstname').value;
+        const lastname = document.getElementById('Lastname').value;
+        const phone = document.getElementById('Phone').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        if (password !== confirmPassword) {
+            document.getElementById('message').innerHTML = 'Passwords do not match';
+        } else {
+            const user = {
+                username,
+                firstname,
+                lastname,
+                phone,
+                email,
+                password
+            };
+            console.log(user);
+            document.getElementById('message').innerHTML = 'User created successfully';
+        }
+    });
+</script>
